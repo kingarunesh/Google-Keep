@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block content %}
+
+<h1>New Note</h1>
+
+<form method="POST">
+  {% csrf_token %} {{form.as_p}}
+
+  <input type="submit" value="Create" />
+
+  <!-- testing -->
+  {% comment %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+  </div>
+
+  <!-- title -->
+  {{ form.title.label_tag }} {{ form.title }}
+
+  <!-- note -->
+  {{ form.note.label_tag }} {{ form.note }}
+
+  <!-- category -->
+  {{ form.category.label_tag }} {{ form.category }}
+
+  <!--  -->
+
+  <br /><br />
+  <hr />
+  <br /><br />
+
+  {% for f in form %}
+  <div>{{f}}</div>
+  {% endfor %} {% endcomment %}
+  <!-- end testing -->
+</form>
+
+{% endblock %}
