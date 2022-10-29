@@ -7,7 +7,11 @@
       <!-- dashboard -->
       <li class="nav-item">
         <a
+        {% if '/' == request.path %}
           class="nav-link active"
+          {% else %}
+            class="nav-link"
+          {% endif %}
           aria-current="page"
           href="{% url 'notes:dashboard' %}"
         >
@@ -33,7 +37,13 @@
 
       <!-- notes -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'notes:notes_list' %}">
+        <a 
+        {% if '/notes/' == request.path %}
+        class="nav-link active"
+        {% else %}
+        class="nav-link"
+        {% endif %}
+         href="{% url 'notes:notes_list' %}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -58,7 +68,13 @@
 
       <!-- completed note -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'notes:done_notes' %}">
+        <a 
+        {% if '/done-notes/' == request.path %}
+        class="nav-link active"
+        {% else %}
+        class="nav-link"
+        {% endif %}
+         href="{% url 'notes:done_notes' %}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -77,7 +93,13 @@
 
       <!-- pending -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'notes:pending_notes' %}">
+        <a 
+        {% if '/pending-note/' == request.path %}
+        class="nav-link active"
+        {% else %}
+        class="nav-link"
+        {% endif %}
+        href="{% url 'notes:pending_notes' %}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

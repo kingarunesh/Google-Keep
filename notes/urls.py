@@ -6,7 +6,7 @@ app_name = "notes"
 
 urlpatterns = [
     path("", view=views.DashboardTemplateView.as_view(), name="dashboard"),
-    path("notes", view=views.NoteListView.as_view(), name="notes_list"),
+    path("notes/", view=views.NoteListView.as_view(), name="notes_list"),
     path("add/", view=views.CreateNoteView.as_view(), name="create_note"),
     path("note-detail/<int:pk>", view=views.NoteDetailView.as_view(), name="notes-detail"),
     path("delete-note/<int:pk>", view=views.NoteDeleteView.as_view(), name="delete-note"),
