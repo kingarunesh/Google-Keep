@@ -7,13 +7,12 @@ from notes.forms import NoteForm
 
 class DashboardTemplateView(TemplateView):
     template_name = "notes/dashboard.html"
-    print(path)
 
 
 class NoteListView(ListView):
     model = Note
+    queryset = Note.objects.order_by("-updated_date").all()
     context_object_name = "notes_list"
-    print(path)
 
 
 class CreateNoteView(CreateView):
@@ -34,7 +33,8 @@ class NoteDeleteView(DeleteView):
 
 class NoteUpdateView(UpdateView):
     model = Note
-    fields = ["title", "note", "done", "category"]
+    # fields = ["title", "note", "done", "category"]
+    form_class = NoteForm
     success_url = reverse_lazy("notes:notes_list")
 
 

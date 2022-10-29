@@ -22,7 +22,7 @@ class Note(models.Model):
         ('Weekend Plan', 'Weekend Plan'),
         ('Other','Other'),
     ]
-    category = models.CharField(max_length=100, choices=CAT_LIST, default="Other")
+    category = models.CharField(max_length=100, choices=CAT_LIST, default="Grocery")
 
     def __str__(self):
         return f"{self.title} - {self.category}"
