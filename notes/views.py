@@ -45,6 +45,13 @@ class TrashNoteView(ListView):
     template_name = "notes/trash_notes_list.html"
 
 
+class RestoreTrashNote(UpdateView):
+    model = Note
+    fields = ["trash"]
+    success_url = reverse_lazy("notes:notes_list")
+    template_name = "notes/trash-note-move-to-note.html"
+
+
 class NoteUpdateView(UpdateView):
     model = Note
     # fields = ["title", "note", "done", "category"]
