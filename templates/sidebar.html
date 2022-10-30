@@ -137,7 +137,13 @@
 
       <!-- trash -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a
+        {% if '/trash-note-view/' == request.path %}
+        class="nav-link active" 
+        {% else %}
+        class="nav-link" 
+        {% endif %}
+        href="{% url 'notes:trash-note-view' %}">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
